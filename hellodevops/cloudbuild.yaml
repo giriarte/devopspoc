@@ -1,7 +1,13 @@
 substitutions:
     _CLOUDSDK_COMPUTE_ZONE: us-east1-b # default value
-    _CLOUDSDK_CONTAINER_CLUSTER: test      # default value
+    _CLOUDSDK_CONTAINER_CLUSTER: hellodevops-automated-cluster     # default value
 steps:
+- id: create-cluster
+  name: 'gcr.io/cloud-builders/gcloud'
+  args: ['deployment-manager deployments create hellodevops-automated-cluster --template=kubernetes_cluster.py --properties=CLUSTER_NAME:hellodevops-automated-cluster,CLUSTER_ZONE:us-east1-b,NUM_NODES:1 --project=emerald-water-235319']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
 - id: kubectl-apply
   name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'docker/k8s/']
