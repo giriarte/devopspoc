@@ -3,10 +3,14 @@ substitutions:
     _CLOUDSDK_CONTAINER_CLUSTER: hellodevops-automated-cluster     # default value
 steps:
 - id: create-cluster
-  name: 'gcr.io/cloud-builders/gsutil'
+  name: 'gcr.io/cloud-builders/gcloud'
   args:
     [
-      'cd','/workspace/hellodevops'
+      'deployment-manager',
+      'deployments', 'create', 'hellodevops-automated-cluster',
+      '--template', '/workspace/.git/hellodevops/kubernetes_cluster.py',
+      '--properties', 'CLUSTER_NAME:hellodevops-automated-cluster,CLUSTER_ZONE:us-east1-b,NUM_NODES:1',
+      '--project', 'emerald-water-235319'
     ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
