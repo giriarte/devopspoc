@@ -8,7 +8,7 @@ steps:
     [
       'deployment-manager',
       'deployments', 'create', 'hellodevops-automated-cluster',
-      '--template', 'kubernetes_cluster.py',
+      '--template', '/workspace/.git/hellodevops/kubernetes_cluster.py',
       '--properties', 'CLUSTER_NAME:hellodevops-automated-cluster,CLUSTER_ZONE:us-east1-b,NUM_NODES:1',
       '--project', 'emerald-water-235319'
     ]
