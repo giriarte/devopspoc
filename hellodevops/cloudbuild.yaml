@@ -6,7 +6,7 @@ steps:
   name: 'gcr.io/cloud-builders/gsutil'
   args:
     [
-      'ls'
+      'cd','/workspace/hellodevops'
     ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
