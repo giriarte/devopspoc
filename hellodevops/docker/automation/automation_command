@@ -1,0 +1,9 @@
+NAME=a
+ZONE=us-west1-a
+gcloud deployment-manager deployments create ${NAME} \
+--template=kubernetes_engine.py \
+--properties=CLUSTER_NAME:${NAME},CLUSTER_ZONE:${ZONE},NUM_NODES:1 \
+--project=$PROJECT
+
+
+gcloud deployment-manager deployments create hellodevops-automated-cluster --template=kubernetes_cluster.py --properties=CLUSTER_NAME:hellodevops-automated-cluster,CLUSTER_ZONE:us-east1-b,NUM_NODES:1 --project=$PROJECT

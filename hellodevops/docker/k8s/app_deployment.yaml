@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appdeployment
+  labels:
+    app: appdeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appdeployment
+  template:
+    metadata:
+      labels:
+        app: appdeployment
+    spec:
+      containers:
+      - name: appdeployment
+        image: giriartedocker/hellodevops_image:latest
+        env:
+        - name: MONGO_HOST
+          value: mongodb
+        ports:
+        - containerPort: 8080

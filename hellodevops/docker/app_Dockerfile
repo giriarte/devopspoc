@@ -1,0 +1,6 @@
+FROM adoptopenjdk/openjdk8:latest
+RUN mkdir /usr/src/hellodevops
+COPY hellodevops-0.0.1-SNAPSHOT.jar /usr/src/hellodevops
+WORKDIR /usr/src/hellodevops
+EXPOSE 8080
+CMD ["java", "-jar", "/usr/src/hellodevops/hellodevops-0.0.1-SNAPSHOT.jar"]
