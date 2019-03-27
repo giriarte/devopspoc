@@ -23,11 +23,11 @@ public class GreetingController {
 
 		logger.debug("Greeting requested for name : " + name);
 
-		logger.debug("Amount of items in table: " + itemRepository.findAll().size());
+		logger.debug("Amount of items in table::: " + itemRepository.findAll().size());
 
 		itemRepository.insert(new Item(Long.toString(System.currentTimeMillis()), "Item_Name", 0));
 
-		logger.debug("Amount of items in table: " + itemRepository.findAll().size());
+		logger.debug("Amount of items in table:::: " + itemRepository.findAll().size());
 
 		return "greeting";
 	}
