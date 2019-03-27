@@ -1,5 +1,5 @@
 substitutions:
-    _CLOUDSDK_COMPUTE_ZONE: us-east1-b # default value
+    _CLOUDSDK_COMPUTE_ZONE: us-central1-a # default value
     _CLOUDSDK_CONTAINER_CLUSTER: ci-cluster     # default value
 steps:
 - id: kubectl-apply
