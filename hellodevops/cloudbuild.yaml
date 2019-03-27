@@ -11,7 +11,7 @@ steps:
   dir: hellodevops
 - id: create-docker-image
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hello-devops-image:latest', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hello-devops-image:latest', '-f', '.\hellodevops\docker\app_Dockerfile', '.']
 - id: push-docker-image
   name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/hello-devops-image:latest']
