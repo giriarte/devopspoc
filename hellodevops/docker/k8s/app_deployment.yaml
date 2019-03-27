@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: appdeployment
-        image: giriartedocker/hellodevops_image:latest
+        image: gcr.io/$PROJECT_ID/hello-devops-image:current
         env:
         - name: MONGO_HOST
           value: mongodb
