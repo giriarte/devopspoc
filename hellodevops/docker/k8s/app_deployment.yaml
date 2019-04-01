@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: appdeployment
-        image: gcr.io/emerald-water-235319/hello-devops-image:current
+        image: gcr.io/bd-warmp/hello-devops-image:current
         env:
         - name: MONGO_HOST
           value: mongodb

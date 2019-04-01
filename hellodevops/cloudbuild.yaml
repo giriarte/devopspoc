@@ -19,9 +19,6 @@ steps:
 - id: push-docker-image
   name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/hello-devops-image:current']
-- id: enable-container-permission
-  name: 'gcr.io/cloud-builders/gcloud'
-  args: ['services', 'enable', 'container.googleapis.com']
 - id: kubectl-apply
   name: 'gcr.io/cloud-builders/kubectl'
   args: ['replace', '--force', '-f', 'hellodevops/docker/k8s/']
