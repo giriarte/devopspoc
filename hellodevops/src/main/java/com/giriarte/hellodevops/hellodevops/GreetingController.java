@@ -1,6 +1,8 @@
 package com.giriarte.hellodevops.hellodevops;
 
+import com.giriarte.hellodevops.hellodevops.model.CacheElement;
 import com.giriarte.hellodevops.hellodevops.model.Item;
+import com.giriarte.hellodevops.hellodevops.repository.CacheElementRepository;
 import com.giriarte.hellodevops.hellodevops.repository.ItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,8 @@ public class GreetingController {
 
 	@Autowired ItemRepository itemRepository;
 
+	@Autowired CacheElementRepository cacheElementRepository;
+
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("fullGreeting", GreetingBuilder.buildGreeting(name));
@@ -28,6 +32,13 @@ public class GreetingController {
 		itemRepository.insert(new Item(Long.toString(System.currentTimeMillis()), "Item_Name", 0));
 
 		logger.debug("Amount of items in table:::: " + itemRepository.findAll().size());
+
+		boolean fromCache = cacheElementRepository.findById(name).isPresent();
+		if (!fromCache) {
+			cacheElementRepository.save(new CacheElement(name, 0));
+		}
+
+		model.addAttribute("fromCache", fromCache);
 
 		return "greeting";
 	}

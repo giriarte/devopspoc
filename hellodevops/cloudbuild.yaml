@@ -1,6 +1,6 @@
 substitutions:
-    _CLOUDSDK_COMPUTE_ZONE: us-central1-a # default value
-    _CLOUDSDK_CONTAINER_CLUSTER: ci-cluster     # default value
+    _CLOUDSDK_COMPUTE_ZONE: us-central1-f # default value
+    _CLOUDSDK_CONTAINER_CLUSTER: demo-cluster   # default value
 steps:
 - id: clone-repo
   name: 'gcr.io/cloud-builders/git'
