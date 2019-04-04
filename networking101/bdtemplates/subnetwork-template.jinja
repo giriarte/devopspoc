@@ -1,8 +1,0 @@
-resources:
-- name: {{ env["name"] }}
-  type: compute.v1.subnetwork
-  properties:
-    ipCidrRange: {{ properties["range"] }}
-    network: $(ref.{{ properties["network"] }}.selfLink)
-    region: {{ properties["region"] }}
-    enableFlowLogs: {{ properties["enableFlowLogs"] }}

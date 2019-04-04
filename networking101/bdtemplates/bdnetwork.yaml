@@ -1,8 +1,0 @@
-imports:
-- path: subnetwork-template.jinja
-- path: network-template.jinja
-- path: vpc-shared-template.jinja
-
-resources:
-- name: compute-engine-setup
-  type: vpc-shared-template.jinja
