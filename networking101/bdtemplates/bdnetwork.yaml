@@ -1,4 +1,5 @@
 imports:
+- path: subnetwork-template.jinja
 - path: network-template.jinja
 - path: vpc-shared-template.jinja
 
