@@ -3,3 +3,45 @@
 resources:
 - name: {{ NETWORK_NAME }}
   type: network-template.jinja
+- name: b2b-api
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.32.0/19
+    region: us-east4
+    enableFlowLogs: true
+- name: b2b-interfacesapi
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.64.0/19
+    region: us-east4
+    enableFlowLogs: true
+- name: b2b-redis
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.128.0/19
+    region: us-east4
+    enableFlowLogs: true
+- name: b2b-sql
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.96.0/19
+    region: us-east4
+    enableFlowLogs: true
+- name: b2b-webapps
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.0.0/19
+    region: us-east4
+    enableFlowLogs: true
+- name: shr-dc
+  type: subnetwork-template.jinja
+  properties:
+    network: {{ NETWORK_NAME }}
+    range: 10.100.192.0/19
+    region: us-east4
+    enableFlowLogs: false
